@@ -12,9 +12,9 @@ git clone --reference-if-able .cache --bare "$origin" .git
 git remote add upstream "$target"
 
 if [ "$force" ]; then
-    echo git push --force --all --prune upstream
-    echo git push --force --tags upstream
+    git push --force --all --prune upstream
+    git push --force --tags upstream
 else
-    echo git push --all --prune upstream
-    echo git push --tags upstream
+    git push --all --prune upstream
+    git push --tags upstream
 fi
