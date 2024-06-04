@@ -16,8 +16,7 @@ if [ "$SYNC_FORCE_PUSH" ]; then
 fi
 
 if [ "$SYNC_BRANCH_PATTERN" ]; then
-    patterns=$(echo "$SYNC_BRANCH_PATTERN" | tr ';' ' ')
-    git branch --format '%(refname)' --list $patterns | xargs -i git push $force --prune upstream {}
+    git branch --format '%(refname)' --list $SYNC_BRANCH_PATTERN | xargs -i git push $force --prune upstream {}
 else
     git push $force --all --prune upstream
 fi
