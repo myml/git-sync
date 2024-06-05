@@ -8,6 +8,9 @@ rm -rf .cache .git
 if [ "$SYNC_MIRROR_CACHE" ]; then
     echo + git clone --bare "\$SYNC_MIRROR_CACHE" .cache || true
     git clone --bare "$SYNC_MIRROR_CACHE" .cache || true
+else
+    echo + git clone --bare "\$target" .cache || true
+    git clone --bare "$target" .cache || true
 fi
 
 echo + git clone --reference-if-able .cache --bare "\$origin" .git
