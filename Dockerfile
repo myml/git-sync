@@ -1,4 +1,5 @@
-FROM alpine/git
+FROM debian
 COPY git-sync.sh /
-RUN apk -U --no-cache add httpie
+RUN apt-get update 
+RUN apt-get install -y httpie ca-certificates
 ENTRYPOINT ["/git-sync.sh"]
